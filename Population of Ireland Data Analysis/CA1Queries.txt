@@ -1,0 +1,23 @@
+Question 1 Queries
+1.B SELECT COUNT(`County`) FROM `population`
+1.C DESCRIBE `population`
+1.D SELECT `County`, max(`Pop`), min(`Pop`), AVG(`Pop`) FROM `population` GROUP BY `County`
+1.E SELECT `Year`,sum(`Pop`) FROM `population` GROUP BY `Year`
+1.F Completed in excel - see excel for answer
+1.G SELECT `Year`, `County`, `Pop` from population WHERE County ='Dublin' and year >=1961 (get dublin part) - rest done in excel
+1.H SELECT `Year`, `County`, `Pop` from population WHERE County ='Dublin'
+1.I SELECT `County`, `Year`, MAX(`Pop`) FROM `population` GROUP BY `Year`, `County` ORDER BY population.County, population.Year (Getting each year of each county with 
+max pop going from highest to lowest)
+Year 2016 max pop - (SELECT `Year`, MAX(`Pop`) FROM `population` WHERE `Year` = 2016)
+
+
+
+Question 2 Queries
+2.B SELECT COUNT(`Province`) FROM `counties`
+2.C DESCRIBE `counties`
+2.D SELECT `County`, `Grant Allocations` FROM `counties` ORDER BY `Grant Allocations` DESC LIMIT 5
+2.E SELECT `County`, `Area(sq km)` from counties where `Area(sq km)`<=1000 ORDER BY `Area(sq km)`
+2.F SELECT population.Year, counties.Province, AVG(`Pop`) FROM `population` JOIN counties on population.County = counties.County GROUP BY `Province`, population.Year
+2.G SELECT counties.County, population.Pop, `Area(sq km)` FROM `population` JOIN counties on population.County = counties.County WHERE population.Year = 1841
+    SELECT counties.County, population.Pop, `Area(sq km)` FROM `population` JOIN counties on population.County = counties.County WHERE population.Year = 2016
+2.H SELECT counties.County, counties.Grant_Allocations/population.Pop FROM `population` JOIN counties on population.County = counties.County WHERE population.Year = 2016
